@@ -20,3 +20,5 @@ To create a library from the sources, you need to use something like the followi
 
 ## Demo
 The `Unity project` folder contains a demo project with a `statemachine.bundle` file that contains the compiled C++ code. In the file `MasterController.cs` you will see that all necessary functions are imported using the `DllImport` attribute.
+
+![Alt text](cartdemo.png?raw=true "Screenshot of the cart demo")
