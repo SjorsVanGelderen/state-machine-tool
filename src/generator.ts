@@ -28,7 +28,7 @@ const collectCondition: (
       OrderedSet<[string, string]>([
         [`${machineId}State`, `current${machineId}State`]
       ]),
-      `(current${machineId}State == ${machineId}State::${hasState})`
+      `(current${machineId}State == ${machineId}State::${machineId}${hasState})`
     ];
   }
 };
@@ -53,7 +53,7 @@ const generateEnums: (
   states.reduce((acc, v, k) => {
     const states = v
       .valueSeq()
-      .map((s, i) => `${s}${i == 0 ? " = 0" : ""}`)
+      .map((s, i) => `${capitalize(k)}${s}${i == 0 ? " = 0" : ""}`)
       .join(",\n");
 
     const source = `enum ${capitalize(k)}State {\n${states}\n};\n\n`;
@@ -75,7 +75,7 @@ const generateHeader: (machine: Machine) => string = machine => {
 
         let conditionParams = "";
 
-        if (transition.kind) {
+        if (transition && Object.keys(transition).length > 0) {
           conditionParams =
             ",\n" +
             collectCondition(transition)[0]
@@ -137,7 +137,7 @@ const generateDefinitions: (machine: Machine) => string = machine => {
         let conditionInfo = undefined;
         let condition = "";
 
-        if (transition.kind) {
+        if (transition && Object.keys(transition).length > 0) {
           conditionInfo = collectCondition(transition);
           condition = conditionInfo[1];
         }
@@ -152,14 +152,14 @@ const generateDefinitions: (machine: Machine) => string = machine => {
         }
 )
 {
-  if(current${machineId}State != ${machineId}State::${capitalize(fromState)}${
-          transition.kind ? ` || !${condition}` : ""
-        })
+  if(current${machineId}State != ${machineId}State::${machineId}${capitalize(
+          fromState
+        )}${(transition && Object.keys(transition).length > 0) ? ` || !${condition}` : ""})
   {
     return current${machineId}State;
   }
 
-  return ${machineId}State::${capitalize(toState)};
+  return ${machineId}State::${machineId}${capitalize(toState)};
 }`;
 
         const externDefinition = `${machineId}State ${machineId}From${capitalize(
@@ -190,7 +190,7 @@ const generateDefinitions: (machine: Machine) => string = machine => {
 
   const source = `#include "${machineId}.h"
 
-const ${machineId}State ${machineId}::initialState = ${machineId}State::${capitalize(
+const ${machineId}State ${machineId}::initialState = ${machineId}State::${machineId}${capitalize(
     machine.initialState
   )};
 

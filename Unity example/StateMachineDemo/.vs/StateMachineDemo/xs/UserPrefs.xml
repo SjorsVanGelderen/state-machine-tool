@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{A6E6E988-0A5C-9759-E822-70DB47245968}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MasterController.cs">
+    <Files>
+      <File FileName="Assets/Scripts/MasterController.cs" Line="208" Column="3" />
+      <File FileName="Assets/Scripts/SwitchController.cs" Line="11" Column="16" />
+      <File FileName="Assets/Scripts/CartController.cs" Line="12" Column="70" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
