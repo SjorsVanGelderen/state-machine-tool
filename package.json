@@ -1,0 +1,16 @@
+{
+  "name": "state-machine-tool",
+  "version": "1.0.0",
+  "description": "Type-safe engine-agnostic state machine generator",
+  "main": "index.js",
+  "dependencies": {
+    "@types/immutable": "^3.8.7",
+    "@types/node": "^10.12.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sjors van Gelderen",
+  "license": "MIT"
+}
